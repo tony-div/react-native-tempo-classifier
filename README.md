@@ -4,8 +4,24 @@ Real-time tempo classification (fast/normal/slow) from rep phase data, powered b
 
 ## Installation
 
+### npm (via GitHub Releases)
+
 ```sh
-npm install react-native-tempo-classifier
+npm install https://github.com/tony-div/react-native-tempo-classifier/releases/download/v0.0.1/react-native-tempo-classifier-0.0.1.tgz
+```
+
+Or add to your `package.json`:
+
+```json
+"react-native-tempo-classifier": "https://github.com/tony-div/react-native-tempo-classifier/releases/download/v0.0.1/react-native-tempo-classifier-0.0.1.tgz"
+```
+
+Check the [latest release](https://github.com/tony-div/react-native-tempo-classifier/releases) for the current version.
+
+### From source (development)
+
+```sh
+npm install
 ```
 
 Requires `react-native-nitro-modules` as a peer dependency.
