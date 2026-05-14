@@ -1,0 +1,12 @@
+{
+  "extends": "@react-native/typescript-config",
+  "compilerOptions": {
+    "types": ["jest"],
+    "paths": {
+      "react-native-pose-landmarks": ["./node_modules/react-native-pose-landmarks/src/index"],
+      "react-native-rep-counter": ["./node_modules/react-native-rep-counter/src/index"]
+    }
+  },
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["**/node_modules", "**/Pods"]
+}

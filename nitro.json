@@ -1,0 +1,26 @@
+{
+  "$schema": "https://nitro.margelo.com/nitro.schema.json",
+  "cxxNamespace": [
+    "tempoclassifier"
+  ],
+  "ios": {
+    "iosModuleName": "NitroTempoClassifier"
+  },
+  "android": {
+    "androidNamespace": [
+      "tempoclassifier"
+    ],
+    "androidCxxLibName": "NitroTempoClassifier"
+  },
+  "autolinking": {
+    "TempoClassifier": {
+      "all": {
+        "language": "c++",
+        "implementationClassName": "HybridTempoClassifier"
+      }
+    }
+  },
+  "ignorePaths": [
+    "**/node_modules"
+  ]
+}
