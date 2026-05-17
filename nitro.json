@@ -7,15 +7,19 @@
     "iosModuleName": "NitroTempoClassifier"
   },
   "android": {
+    "androidCxxLibName": "NitroTempoClassifier",
     "androidNamespace": [
       "tempoclassifier"
-    ],
-    "androidCxxLibName": "NitroTempoClassifier"
+    ]
   },
   "autolinking": {
     "TempoClassifier": {
-      "all": {
+      "ios": {
         "language": "c++",
+        "implementationClassName": "HybridTempoClassifier"
+      },
+      "android": {
+        "language": "kotlin",
         "implementationClassName": "HybridTempoClassifier"
       }
     }

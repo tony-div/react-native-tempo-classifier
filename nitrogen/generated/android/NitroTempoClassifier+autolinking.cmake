@@ -35,7 +35,8 @@ target_sources(
   # Shared Nitrogen C++ sources
   ../nitrogen/generated/shared/c++/HybridTempoClassifierSpec.cpp
   # Android-specific Nitrogen C++ sources
-  
+  ../nitrogen/generated/android/c++/JHybridTempoClassifierSpec.cpp
+  ../nitrogen/generated/android/c++/JVariant_NullType_String.cpp
 )
 
 # From node_modules/react-native/ReactAndroid/cmake-utils/folly-flags.cmake

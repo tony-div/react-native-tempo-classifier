@@ -15,7 +15,8 @@
 #include <fbjni/fbjni.h>
 #include <NitroModules/HybridObjectRegistry.hpp>
 
-#include "HybridTempoClassifier.hpp"
+#include "JHybridTempoClassifierSpec.hpp"
+#include <NitroModules/DefaultConstructableObject.hpp>
 
 namespace margelo::nitro::tempoclassifier {
 
@@ -25,23 +26,27 @@ int initialize(JavaVM* vm) {
   });
 }
 
-
+struct JHybridTempoClassifierSpecImpl: public jni::JavaClass<JHybridTempoClassifierSpecImpl, JHybridTempoClassifierSpec::JavaPart> {
+  static constexpr auto kJavaDescriptor = "Lcom/margelo/nitro/tempoclassifier/HybridTempoClassifier;";
+  static std::shared_ptr<JHybridTempoClassifierSpec> create() {
+    static const auto constructorFn = javaClassStatic()->getConstructor<JHybridTempoClassifierSpecImpl::javaobject()>();
+    jni::local_ref<JHybridTempoClassifierSpec::JavaPart> javaPart = javaClassStatic()->newObject(constructorFn);
+    return javaPart->getJHybridTempoClassifierSpec();
+  }
+};
 
 void registerAllNatives() {
   using namespace margelo::nitro;
   using namespace margelo::nitro::tempoclassifier;
 
   // Register native JNI methods
-  
+  margelo::nitro::tempoclassifier::JHybridTempoClassifierSpec::CxxPart::registerNatives();
 
   // Register Nitro Hybrid Objects
   HybridObjectRegistry::registerHybridObjectConstructor(
     "TempoClassifier",
     []() -> std::shared_ptr<HybridObject> {
-      static_assert(std::is_default_constructible_v<HybridTempoClassifier>,
-                    "The HybridObject \"HybridTempoClassifier\" is not default-constructible! "
-                    "Create a public constructor that takes zero arguments to be able to autolink this HybridObject.");
-      return std::make_shared<HybridTempoClassifier>();
+      return JHybridTempoClassifierSpecImpl::create();
     }
   );
 }

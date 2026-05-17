@@ -23,14 +23,6 @@ apply plugin: 'org.jetbrains.kotlin.android'
 apply from: '../nitrogen/generated/android/NitroTempoClassifier+autolinking.gradle'
 apply from: "./fix-prefab.gradle"
 
-tasks.register("buildRustRelease", Exec) {
-  commandLine "bash", "$projectDir/build-rust-android.sh"
-}
-
-tasks.matching { it.name == "preBuild" }.configureEach {
-  dependsOn("buildRustRelease")
-}
-
 if (isNewArchitectureEnabled()) {
   apply plugin: "com.facebook.react"
 }
@@ -146,5 +138,7 @@ dependencies {
 
   // Add a dependency on NitroModules
   implementation project(":react-native-nitro-modules")
-}
 
+  // Add a dependency on the shared RandomForest native module
+  implementation project(":react-native-random-forest")
+}

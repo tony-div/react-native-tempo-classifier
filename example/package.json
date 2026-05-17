@@ -17,8 +17,9 @@
     "react-native-safe-area-context": "^5.5.2",
     "react-native-tempo-classifier": "file:..",
     "react-native-rep-counter": "github:tony-div/react-native-rep-counter#v2.0.0",
-    "react-native-exercise-recognition": "github:tony-div/react-native-exercise-recognition#v1.3.3",
-    "react-native-pose-landmarks": "github:tony-div/react-native-pose-landmarks#v1.3.0"
+    "react-native-exercise-recognition": "github:tony-div/react-native-exercise-recognition#v1.4.0",
+    "react-native-pose-landmarks": "github:tony-div/react-native-pose-landmarks#v1.3.0",
+    "react-native-random-forest": "github:tony-div/react-native-random-forest#v0.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",

@@ -16,7 +16,6 @@
     "android/fix-prefab.gradle",
     "android/CMakeLists.txt",
     "android/src",
-    "android/prebuilt",
     "cpp",
     "ios/**/*.h",
     "ios/**/*.m",
@@ -26,9 +25,6 @@
     "app.plugin.js",
     "nitro.json",
     "*.podspec",
-    "rust/Cargo.toml",
-    "rust/Cargo.lock",
-    "rust/src",
     "scripts",
     "README.md"
   ],
@@ -68,6 +64,8 @@
     "react": "19.2.0",
     "react-native": "0.83.0",
     "react-native-nitro-modules": "*",
+    "react-native-exercise-recognition": "github:tony-div/react-native-exercise-recognition#v1.4.0",
+    "react-native-random-forest": "github:tony-div/react-native-random-forest#v0.1.0",
     "typescript": "^5.8.3"
   },
   "peerDependencies": {
@@ -75,8 +73,9 @@
     "react-native": "*",
     "react-native-nitro-modules": "*",
     "react-native-rep-counter": "*",
-    "react-native-exercise-recognition": "*",
-    "react-native-pose-landmarks": "*"
+    "react-native-exercise-recognition": "github:tony-div/react-native-exercise-recognition#v1.4.0",
+    "react-native-pose-landmarks": "github:tony-div/react-native-pose-landmarks#v1.3.0",
+    "react-native-random-forest": "github:tony-div/react-native-random-forest#v0.1.0"
   },
   "eslintConfig": {
     "root": true,

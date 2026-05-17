@@ -1,7 +1,6 @@
 #pragma once
 
 #include "../nitrogen/generated/shared/c++/HybridTempoClassifierSpec.hpp"
-#include "rust/TempoClassifierRustBridge.hpp"
 
 #include <optional>
 #include <string>
@@ -21,9 +20,6 @@ class HybridTempoClassifier : public HybridTempoClassifierSpec {
   std::string getCurrentTempo() override;
   double getCurrentQuality() override;
   void reset() override;
-
- private:
-  TempoClassifierRustBridge rust_;
 };
 
 } // namespace margelo::nitro::tempoclassifier
