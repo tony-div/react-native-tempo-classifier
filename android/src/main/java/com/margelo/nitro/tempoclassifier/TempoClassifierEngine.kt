@@ -6,6 +6,7 @@ import org.json.JSONObject
 
 class TempoClassifierEngine {
     private val TAG = "NitroTempoCls"
+    private val MODEL_NAME = "tempo"
 
     private var modelLoaded = false
     private var exerciseClasses: List<String> = emptyList()
@@ -19,7 +20,7 @@ class TempoClassifierEngine {
 
     fun loadModel(modelJson: String): Boolean {
         Log.d(TAG, "loadModel(): begin")
-        val ok = RandomForestBridge.loadModel(modelJson)
+        val ok = RandomForestBridge.loadModel(modelJson, MODEL_NAME)
         if (!ok) { Log.d(TAG, "loadModel(): failed"); return false }
         try {
             val json = JSONObject(modelJson)
@@ -54,7 +55,7 @@ class TempoClassifierEngine {
                     val halfRatio = half1S / half2S
                     val exEnc = if (exercise != null) exerciseClasses.indexOf(exercise).let { if (it >= 0) it else 0 } else 0
                     val flatData = doubleArrayOf(totalS, half1S, half2S, halfRatio, exEnc.toDouble())
-                    val rawProbs = RandomForestBridge.predictProbabilities(flatData, 1, 5)
+                    val rawProbs = RandomForestBridge.predictProbabilities(flatData, 1, 5, MODEL_NAME)
                     if (rawProbs != null && rawProbs.isNotEmpty()) {
                         var bi = 0; var bv = Float.NEGATIVE_INFINITY
                         for (i in rawProbs.indices) { val v = rawProbs[i].toFloat(); if (v > bv) { bv = v; bi = i } }
